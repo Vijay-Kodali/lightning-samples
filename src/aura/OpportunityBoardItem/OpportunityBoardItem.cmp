@@ -1,0 +1,33 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes">
+
+  <aura:attribute name="opportunity" type="Opportunity" />
+  <aura:attribute name="amount" type="Integer" />
+  <aura:handler name="init" action="{!c.init}" value="{!this}" />
+
+  <div class="opportunity-board-item-component slds">
+    <div class="slds-box">
+      <div class="slds-tile slds-tile--board">
+        <p class="slds-tile__title slds-truncate">
+          <a href="javascript:void(0);">
+            <ui:outputText value="{!v.opportunity.Name}" />
+          </a>
+        </p>
+        <div class="slds-tile__detail">
+          <p class="slds-text-heading--medium amount-label">
+            <ui:outputText value="$ " />
+            <ui:outputNumber value="{!v.amount}" />
+          </p>
+          <p class="slds-truncate">
+            <a href="javascript:void(0);">
+              <ui:outputText value="{!v.opportunity.Account.Name}" />
+            </a>
+          </p>
+          <p class="slds-truncate slds-has-alert">
+            <ui:outputDate value="{!v.opportunity.CloseDate}" />
+          </p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</aura:component>

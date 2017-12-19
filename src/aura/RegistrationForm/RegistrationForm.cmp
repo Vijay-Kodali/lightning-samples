@@ -1,0 +1,72 @@
+<aura:component >
+    <aura:attribute name="myName" type="String" default=""/>
+    <aura:attribute name="password" type="String" default=""/>
+    <aura:attribute name="phoneNum" type="String" default=""/>
+    <aura:attribute name="emailId" type="String" default=""/>
+    <aura:attribute name="gender" type="String" default=""/>
+    <aura:attribute name="skillSet" type="String" default=""/>
+    <aura:attribute name="about" type="String" default=""/>
+    <aura:attribute name="errors" type="String[]" default="[]"/>
+    <aura:attribute name="isSuccess" type="Boolean" default="false"/>
+    <div class="slds-box">
+        <div class="slds-grid">
+        <aura:if isTrue="{!v.errors.length != 0}">
+            <ui:message title="Error" severity="error" closable="true" class="slds-size_1-of-4">
+                <aura:iteration items="{!v.errors}" var="error" >
+                {!error}.<br />
+                </aura:iteration>
+            </ui:message>
+            <aura:set attribute="else">
+            <aura:if isTrue="{!v.isSuccess}">
+                <ui:message title="Confirmation" severity="confirm" closable="true" class="slds-size_1-of-4">
+                    Validation Success!
+                </ui:message>
+            </aura:if>
+            </aura:set>
+        </aura:if>
+        </div>
+        <div class="slds-grid">
+            <ui:inputText aura:id="name" class="slds-size_1-of-2" required= "true" label="Name" placeholder="Your Name" value="{!v.myName}"/>
+        </div> 
+        <br />
+        <div class="slds-grid">
+            <ui:inputSecret aura:id="secret" label="Password" class="field" value="{!v.password}"/>        
+        </div>
+        <br />
+        <div class="slds-grid">
+        <ui:inputPhone aura:id="phone" label="Phone Number" class="field" value="{!v.phoneNum}" />      
+        </div>
+        <br />
+        <div class="slds-grid">
+        <ui:inputEmail aura:id="email" label="Email" class="field" value="{!v.emailId}" />      
+        </div>
+        <br />
+        <div class="slds-grid">
+        <ui:inputRadio aura:id="m" name="gender" label="Male" change="{!c.onGroup}"/>               
+        <ui:inputRadio aura:id="f" name="gender" label="FeMale" change="{!c.onGroup}"/>
+        </div>
+        <br />
+        <div class="slds-grid">
+        <ui:inputSelect multiple="true" class="multiple" aura:id="skills" change="{!c.onMultiSelectChange}">
+
+                    <ui:inputSelectOption text="Java"/>
+                    <ui:inputSelectOption text="SFDC"/>
+                    <ui:inputSelectOption text="DotNet"/>
+                    <ui:inputSelectOption text="Python"/>
+                    <ui:inputSelectOption text="Scala"/>
+                    <ui:inputSelectOption text="R"/>
+                    <ui:inputSelectOption text="Lightning"/>
+                    <ui:inputSelectOption text="Angular JS"/>
+
+                </ui:inputSelect>      
+        </div>
+        <br />
+        <div class="slds-grid">
+        <ui:inputTextArea aura:id="comments" label="About You"  value="{!v.about}" rows="5"/>      
+        </div>  
+        <br />
+        <div class="slds-grid">
+        <ui:button label="Validate" press="{!c.checkInput}"/> 
+        </div>  
+    </div>
+</aura:component>

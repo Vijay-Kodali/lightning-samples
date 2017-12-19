@@ -1,0 +1,49 @@
+<aura:component >
+    <aura:attribute name="showPopup" type="Boolean" default="false"/>
+    <aura:attribute name="names" type="String[]" default="['vijay', 'kodali', 'appshark']"/>
+   
+    <div class="slds-box">
+    <aura:iteration items="{!v.names}" var="myName" indexVar="index">
+      <a href="javascript:void(0);" onclick="{!c.openPopUp}" Id="{!index}" data-name="{!myName}" data-phone="12345678765">{!myName}
+      </a><br />
+      <ui:inputCheckbox aura:id="checkbox" label="{!myName}" change="{!c.onCheck}">
+      <span data-indx="{!index}" onclick="{!c.onCheck}" />
+      </ui:inputCheckbox>
+    </aura:iteration>
+    <lightning:input aura:id="fileId" onchange="{!c.upload}" type="file" name="file" label="Upload Attachment" multiple="false"/>
+    <ui:button press="{!c.reset}" label="Reset File"/>
+    </div>
+
+    <div>
+                    <aura:if isTrue="{!v.showPopup}">
+                        <!--###### MODAL BOX Start From Here ######--> 
+                        <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open ">
+                            <div class="slds-modal__container">
+                                <!-- ###### MODAL BOX HEADER Part Start From Here ######-->
+                                <div class="slds-modal__header">
+                                    <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModel}">
+                                        X
+                                        <span class="slds-assistive-text">Close</span>
+                                    </button>
+                                    <h2 id="header99" class="slds-text-heading--medium">My Pop up</h2>
+                                </div>
+                                <!--###### MODAL BOX BODY Part Start From Here ######-->
+                                <div class="slds-modal__content slds-p-around--medium" aura:id="refForm">
+                                    
+                                </div>
+                                <!--###### MODAL BOX FOOTER Part Start From Here ######-->
+                                <div class="slds-modal__footer" aura:id="referralBtns">
+                                    <button class="slds-button slds-button--brand" onclick="{!c.closeModel}" name="save" >Save</button>
+                                    
+                                </div>                                
+                                
+                            </div>
+                        </div>
+                        <div class="slds-backdrop slds-backdrop--open"></div>
+                        
+                  
+                </aura:if>
+                <!--###### MODAL BOX Part END Here ######-->
+            </div>
+
+</aura:component>

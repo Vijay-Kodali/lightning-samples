@@ -1,0 +1,96 @@
+<aura:component access="global">  
+    <aura:attribute  type="Contact" name="contactObj"/>
+    <aura:attribute name="myBool" type="Boolean" default="false"/>
+    <aura:attribute name="stages" type="String[]" default="Any,Open,Closed,Closed Won"/>
+    <aura:attribute name="myCurrency" type="integer" default="50"/>
+    <aura:attribute name="myName" type="String" default="Kodali"/>
+    <aura:attribute name="myNumber" type="integer" default="10"/>
+    <strong> UI Input and Output</strong>
+    <div class="slds-box slds-grid">
+        <ui:inputText aura:id="name" class="slds-size_1-of-2" label="Enter Name:" placeholder="Your Name" disabled="false"  updateOn="keyup" value="{!v.myName}"/>
+        <!--ui:outputText aura:id="outName" value="{!v.myName}" class="slds-size_1-of-2"/ -->
+    </div>  
+    <strong>UI I/O checkbox</strong>
+    <div class="slds-box slds-grid"> 
+        <ui:inputCheckbox aura:id="checkbox" label="Select?" change="{!c.onCheck}" class="result slds-size_2-of-4"/>
+            <p>Selected:</p>
+            <p><ui:outputText class="result slds-size_1-of-2" aura:id="checkResult" value="false"/></p>
+            <p>The following checkbox uses a component attribute to bind its value.</p>
+        <ui:outputCheckbox aura:id="output" value="{!v.myBool}" class="slds-size_1-of-2"/>
+    </div>
+    <strong>UI I/O inputRadio</strong>
+    <div class="slds-grid">
+        <div class="slds-box slds-grid">
+            <ui:inputRadio aura:id="r0" name="others" label="Prospecting" change="{!c.onGroup}"/>
+               <ui:inputRadio aura:id="r1" name="others" label="Qualification" change="{!c.onGroup}" value="true"/>
+               <ui:inputRadio aura:id="r2" name="others" label="Needs Analysis" change="{!c.onGroup}"/>
+            <ui:inputRadio aura:id="r3" name="others" label="Closed Lost" change="{!c.onGroup}"/>
+            <strong>Selected Items:</strong>
+
+            <p><ui:outputText class="result" aura:id="radioGroupResult" value="" /></p>
+        </div>
+    </div>    
+    <strong>UI Default Error</strong>
+    <div class="slds-box slds-grid">
+        <ui:inputText aura:id="color" label="Enter some text: " placeholder="Blue" class="result slds-size_1-of-3"/>
+        <ui:button label="Validate" press="{!c.checkInput}" class="result slds-size_1-of-3" /> 
+        <ui:outputText aura:id="outColor" value="" class="text result slds-size_1-of-3"/>
+    </div>
+    <strong>UI Spinner</strong>
+    <div>
+        <ui:spinner aura:id="spinner"/>
+        <ui:button press="{!c.toggleSpinner}" label="Toggle Spinner" />
+    </div>
+    <strong>UI Currency</strong>
+    <div class="slds-box slds-grid">        
+        <ui:inputCurrency aura:id="amount" label="Amount" value="{!v.myCurrency}" updateOn="keyup" class="field slds-size_1-of-3" />
+        You entered: <ui:outputCurrency value="{!v.myCurrency}" class="slds-size_1-of-3" />
+    </div>
+    <strong>UI Email</strong>
+    <div class="slds-box slds-grid">
+        <ui:inputEmail aura:id="email" label="Email" class="field" value="manager@email.com"/>  
+        <ui:button class="btn" label="Submit" press="{!c.setOutput}"/> 
+
+        <div aura:id="msg" class="hide">
+        You entered: <ui:outputEmail aura:id="oEmail" value="Email" />
+        </div>
+    </div>
+    <strong>UI input Secret</strong>
+    <div class="slds-box slds-grid">
+        <ui:inputSecret aura:id="secret" label="Pin" class="field" value="123456"/>
+    </div>
+
+    <strong>UI input Phone</strong>
+    <div class="slds-box slds-grid">
+        <ui:inputPhone aura:id="phone" label="Phone Number" class="field" value="415-123-4567" />
+        <ui:button class="btn" label="Submit" press="{!c.setOutputPhone}"/> 
+
+        <div aura:id="msg" class="hide">
+            You entered: <ui:outputPhone aura:id="oPhone" value="" />
+        </div>
+    </div>
+
+    <strong>UI input Number</strong>
+    <div class="slds-box slds-grid">        
+        <ui:inputNumber label="Enter a number: " value="{!v.myNumber}" updateOn="keyup"/> <br/>
+        <ui:outputNumber value="{!v.myNumber}"/>
+    </div>
+
+    <strong>UI input Area</strong>
+    <div class="slds-box slds-grid"> 
+        <ui:inputTextArea aura:id="comments" label="Comments"  value="My comments" rows="5"/>
+        <ui:button class="btn" label="Submit" press="{!c.setOutputArea}"/> 
+        
+        <div aura:id="msg" class="hide">
+             You entered: <ui:outputTextArea aura:id="oTextarea" value=""/>
+        </div>
+    </div>
+    <strong>UI input URL</strong>
+    <div class="slds-box slds-grid"> 
+        <ui:inputURL aura:id="url" label="Venue URL" class="field" value="http://www.myURL.com"/>
+        <ui:button class="btn" label="Submit" press="{!c.setOutputURL}"/> 
+        <div aura:id="msg" class="hide">
+            You entered: <ui:outputURL aura:id="oURL" value=""/>
+        </div>
+    </div>
+</aura:component>

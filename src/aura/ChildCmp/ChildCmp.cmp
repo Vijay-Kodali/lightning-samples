@@ -1,0 +1,4 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" extends="c:BaseCmp" >
+	Parent Component Attr : {!v.recordId}
+     {!v.xyz}
+</aura:component>

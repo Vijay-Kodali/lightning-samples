@@ -1,0 +1,25 @@
+<aura:component controller="OpportunityBoardController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" extends="c:BaseCmp">
+
+  <aura:attribute name="opportunies" type="Opportunity[]" />
+  <aura:handler name="init" action="{!c.init}" value="{!this}" />
+  <aura:attribute name="contacts" type="Contact[]" />
+  <aura:attribute name="recordId" type="String" />
+
+  <div class="opportunity-board-box-component slds">
+    <lightning:icon iconName="utility:new_opportunity" variant="error"/>
+    <strong>Opportunities({!v.opportunies.length})</strong>
+    <ul>
+      <aura:iteration items="{!v.opportunies}" var="opportunity">
+        <li class="slds-m-bottom--small slds-m-horizontal--small">
+          <c:OpportunityBoardItem opportunity="{!opportunity}" />
+        </li>
+      </aura:iteration>
+    </ul>
+    Contacts
+       <aura:iteration items="{!v.contacts}" var="con">
+        <li class="slds-m-bottom--small slds-m-horizontal--small">
+          {!con.LastName}
+        </li>
+      </aura:iteration>
+  </div>
+</aura:component>

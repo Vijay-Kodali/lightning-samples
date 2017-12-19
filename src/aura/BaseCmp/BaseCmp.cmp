@@ -1,0 +1,4 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" extensible="true" controller="AccController" >
+	<aura:attribute name="recordId" type="String" default="No Record"/>
+    {!v.body}
+</aura:component>
