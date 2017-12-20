@@ -1,0 +1,10 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" extensible="true" extends="c:BaseCmp" >
+    <aura:attribute name="recordId" type="String"/>
+    <!--force:recordEdit aura:id="edit" recordId="{!v.recordId}"/>
+    <ui:button label="Save" press="{!c.save}"/ -->
+    <strong>
+        Record Details
+    </strong>
+    <!--force:recordView recordId="{!v.recordId}" type="MINI"/-->
+<force:recordView recordId="00Q7F000001zdLgUAI" type="MINI"/>
+</aura:component>

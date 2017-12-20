@@ -6,12 +6,9 @@
     <aura:iteration items="{!v.names}" var="myName" indexVar="index">
       <a href="javascript:void(0);" onclick="{!c.openPopUp}" Id="{!index}" data-name="{!myName}" data-phone="12345678765">{!myName}
       </a><br />
-      <ui:inputCheckbox aura:id="checkbox" label="{!myName}" change="{!c.onCheck}">
-      <span data-indx="{!index}" onclick="{!c.onCheck}" />
-      </ui:inputCheckbox>
+     
     </aura:iteration>
-    <lightning:input aura:id="fileId" onchange="{!c.upload}" type="file" name="file" label="Upload Attachment" multiple="false"/>
-    <ui:button press="{!c.reset}" label="Reset File"/>
+   
     </div>
 
     <div>

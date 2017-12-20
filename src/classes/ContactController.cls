@@ -21,4 +21,6 @@ public with sharing class ContactController {
     public static Contact getContact() {
         return [select Id, LastName, Email, Phone, AccountId, Birthdate, LeadSource, isActive__c from Contact Limit 1];
     }
+
+   
 }

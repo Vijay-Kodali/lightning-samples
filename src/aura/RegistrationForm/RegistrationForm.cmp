@@ -1,4 +1,4 @@
-<aura:component >
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global">
     <aura:attribute name="myName" type="String" default=""/>
     <aura:attribute name="password" type="String" default=""/>
     <aura:attribute name="phoneNum" type="String" default=""/>
@@ -8,6 +8,7 @@
     <aura:attribute name="about" type="String" default=""/>
     <aura:attribute name="errors" type="String[]" default="[]"/>
     <aura:attribute name="isSuccess" type="Boolean" default="false"/>
+    <aura:attribute name="nameplaceholder" type="String" default=""/>
     <div class="slds-box">
         <div class="slds-grid">
         <aura:if isTrue="{!v.errors.length != 0}">
@@ -26,7 +27,7 @@
         </aura:if>
         </div>
         <div class="slds-grid">
-            <ui:inputText aura:id="name" class="slds-size_1-of-2" required= "true" label="Name" placeholder="Your Name" value="{!v.myName}"/>
+            <ui:inputText aura:id="name" class="slds-size_1-of-2" required= "true" label="Name" placeholder="{!v.nameplaceholder}" value="{!v.myName}"/>
         </div> 
         <br />
         <div class="slds-grid">

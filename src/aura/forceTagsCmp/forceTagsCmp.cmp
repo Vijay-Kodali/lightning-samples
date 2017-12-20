@@ -1,0 +1,54 @@
+<aura:component controller="ContactController">
+    <aura:attribute name="contact" type="Contact" 
+               default="{ 'sobjectType': 'Contact' }"/>
+    
+    
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+
+    <strong> Force Input and Output</strong>
+    
+
+    <div class="slds-box slds-grid">
+         <span class="slds-size_1-of-3">Last Name:</span>
+        <force:inputField value="{!v.contact.LastName}" class="slds-size_1-of-3"/>
+        <force:outputField value="{!v.contact.LastName}" class="slds-size_1-of-3"/>
+    </div>  
+    <div class="slds-box slds-grid">
+         <span class="slds-size_1-of-3">Email:</span>
+        <force:inputField value="{!v.contact.Email}" class="slds-size_1-of-3"/>
+        <force:outputField value="{!v.contact.Email}" class="slds-size_1-of-3"/>
+    </div>  
+    <div class="slds-box slds-grid">
+         <span class="slds-size_1-of-3">Phone:</span>
+        <force:inputField value="{!v.contact.Phone}" class="slds-size_1-of-3"/>
+        <force:outputField value="{!v.contact.Phone}" class="slds-size_1-of-3"/>
+    </div>  
+    <div class="slds-box slds-grid">
+         <span class="slds-size_1-of-3">AccountId:</span>
+        <force:inputField value="{!v.contact.AccountId}" class="slds-size_1-of-3"/>
+        <force:outputField value="{!v.contact.AccountId}" class="slds-size_1-of-3"/>
+    </div>  
+    <div class="slds-box slds-grid">
+         <span class="slds-size_1-of-3">Birthdate:</span>
+        <force:inputField value="{!v.contact.Birthdate}" class="slds-size_2-of-3"/>
+        <force:outputField value="{!v.contact.Birthdate}" class="slds-size_1-of-3"/>
+    </div>  
+    <div class="slds-box slds-grid">
+         <span class="slds-size_1-of-3">LeadSource:</span>
+        <force:inputField value="{!v.contact.LeadSource}" class="slds-size_1-of-3"/>
+        <force:outputField value="{!v.contact.LeadSource}" class="slds-size_1-of-3"/>
+    </div>  
+
+    <div class="slds-box slds-grid">
+         <span class="slds-size_1-of-3">Is Active:</span>
+        <force:inputField value="{!v.contact.isActive__c}" class="slds-size_1-of-3"/>
+        <force:outputField value="{!v.contact.isActive__c}" class="slds-size_1-of-3"/>
+    </div>    
+
+<force:recordView recordId="00Q7F000001zdLgUAI" type="MINI"/>
+
+    
+
+</aura:component>
