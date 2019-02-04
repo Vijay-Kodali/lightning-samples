@@ -1,0 +1,45 @@
+<aura:component controller = "ScrollTestController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <ltng:require scripts="{!$Resource.JQ224}"
+                  afterScriptsLoaded="{!c.myAction}" />
+    <aura:attribute name="accounts" type="Account[]"/> 
+     <aura:attribute name="allAccounts" type="Account[]"/> 
+    <aura:attribute name="currentCount" type="Integer" default="50"/> 
+    <aura:attribute name="totalCount" type="Integer" default="0"/> 
+    <div>
+        <div id="myScroll" class=" myScroll slds-table--header-fixed_container">
+        <table border ="" id = "myTable" class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+            <tr>
+                <th scope="col">
+                        Name
+                    </th>
+                    <th  scope="col">
+                        Industry
+                    </th>
+                    <th  scope="col">
+                            CreatedDate
+                    </th>
+              
+                
+            </tr>
+            </thead>
+            <tbody>
+            <aura:iteration items="{!v.accounts}" var="acc">
+                <tr>
+                    <td class="slds-cell-fixed">{!acc.Name}</td>
+                    <td>{!acc.Industry}</td>
+                    <td>{!acc.CreatedDate}</td>
+                </tr>
+            </aura:iteration>
+            </tbody>
+        </table>
+        <div class="showSpinner">
+            <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+        </div>
+    </div>
+</aura:component>
