@@ -7,10 +7,12 @@
 			var totalCount = component.get('v.totalCount');
             var currentCount = component.get('v.currentCount');
             if(totalCount > currentCount){
-            $('.showSpinner').show();
-             console.log('$(myScrollObj).height()',$(myScrollObj).height());
-            console.log('$(myScrollObj).scrollTop()--',$(myScrollObj).scrollTop());
+            
+             console.log('myScrollObj.scrollHeight',myScrollObj.scrollHeight);
+            console.log('myScrollObj.scrollTop--',myScrollObj.scrollTop);
+            console.log('myScrollObj.clientHeight--',myScrollObj.clientHeight);
             if(myScrollObj.scrollHeight - myScrollObj.scrollTop === myScrollObj.clientHeight){
+                $('.showSpinner').show();
                 helper.appendData(component);
             }
             }

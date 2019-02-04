@@ -10,12 +10,11 @@
         
         
         var html = '';
-        console.log('accounts--->',accounts);
+        //console.log('accounts--->',accounts);
         for (var i = currCount; i < (currCount+50); i++) {
             html += '<tr><td>'+allAccouts[i].Name+'</td><td>'+allAccouts[i].Industry+'</td><td>'+allAccouts[i].CreatedDate+'</td></tr>';
         }
-        setTimeout(function(){  
-           
+        setTimeout(function(){             
             $('#myTable').append(html); 
             $('.showSpinner').hide();
         }, 600);
