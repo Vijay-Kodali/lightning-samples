@@ -8,13 +8,20 @@
             var currentCount = component.get('v.currentCount');
             if(totalCount > currentCount){
             
-             console.log('myScrollObj.scrollHeight',myScrollObj.scrollHeight);
-            console.log('myScrollObj.scrollTop--',myScrollObj.scrollTop);
-            console.log('myScrollObj.clientHeight--',myScrollObj.clientHeight);
+              console.log('Sc Top',Math.round($('#myScroll').scrollTop()));
+                console.log('Inner Height',$('#myScroll').innerHeight());
+                console.log('Sc Height',$('#myScroll')[0].scrollHeight);
+            
+            if(Math.round($('#myScroll').scrollTop()) + $('#myScroll').innerHeight() >= $('#myScroll')[0].scrollHeight) {
+            //alert('end reached');
+             $('.showSpinner').show();
+                helper.appendData(component);
+        	}
+             /*   
             if(myScrollObj.scrollHeight - myScrollObj.scrollTop === myScrollObj.clientHeight){
                 $('.showSpinner').show();
                 helper.appendData(component);
-            }
+            }*/
             }
           
         });
